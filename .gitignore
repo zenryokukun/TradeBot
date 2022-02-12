@@ -1,0 +1,19 @@
+#python cache
+__pycache__/
+
+#backup
+bk/
+
+#backtests
+/bktest/
+
+#unit test
+/res/test
+
+#config
+conf/
+
+#tweet resources
+esp_files/
+story_bk/
+/mod/twitter2/keys.json
