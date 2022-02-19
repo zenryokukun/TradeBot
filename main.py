@@ -19,7 +19,7 @@ VER2.1(20211204):
 from mod.tracker import Tracker
 from mod.atime import DateChecker
 from mod.stats.bollinger import Bollinger
-#from mod.twitter2.tweet import tweet_with_story
+from mod.twitter2.tweet import tweet_with_story
 from mod.twitter2.tweet import tweet
 from mod.twitter2.tweet import tweet2 #成績ツイート
 from mod.savereport import save_report
@@ -134,7 +134,9 @@ def send_tweet(result,side=None):
         keys.append("全力判定")
         values.append(side)
 
-    tweet(nowstr,keys=keys,values=values,bot=BOT)
+    #適宜切り替え
+    #tweet(nowstr,keys=keys,values=values,bot=BOT)
+    tweet_with_story(nowstr,keys=keys,values=values,bot=BOT)
 
 def report(after=None,ext=".png"):
     '''成績ツイート用関数'''

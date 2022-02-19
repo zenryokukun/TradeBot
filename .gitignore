@@ -17,3 +17,6 @@ conf/
 esp_files/
 story_bk/
 /mod/twitter2/keys.json
+
+#unused modules
+/mod/trend/
