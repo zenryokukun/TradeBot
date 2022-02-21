@@ -15,6 +15,7 @@ def get_story():
     
     idx = index["index"]
     storyline = story[idx]["msg"]
+    imgpath = story[idx]["img"]
 
     #次回ツイート用にindex更新。最後まで来たら最初に戻る。
     next_idx = idx + 1
@@ -24,7 +25,8 @@ def get_story():
     with open(index_file,"w") as f:
         json.dump({"index":next_idx},f)
 
-    return storyline
+    return storyline,imgpath
+
 
 if __name__ == "__main__":
     print(get_story())

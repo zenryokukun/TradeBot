@@ -8,7 +8,7 @@ from .story import get_story
 #tweet　のみ
 #######################################
 
-_TAGS = "#プログラミング初心者 #btc #bitcoin #自作EA"
+_TAGS = "#btc #bitcoin #自作EA"
 BOT = {"NAME":"全力君FX","VER":"1.4"}
 URL =  "https://api.twitter.com/1.1/statuses/update.json"
 URL_IMAGE = "https://upload.twitter.com/1.1/media/upload.json"
@@ -172,15 +172,17 @@ def tweet_with_story(*args,keys=None,values=None,bot=None,img=None):
 	for k,v in zip(keys,values):
 		msg += "[" + k + "]" + str(v) + "\n"
 	
-	msg += get_story() + "\n"
+	story,imgpath = get_story()
+	msg += story + "\n"
 	msg += _TAGS +" #力3" +"\n"
 
 	index = _slice_tweet(msg)
 	msg = msg[:index]
 
-	if img:
-		media_id = _img_tweet(req,img)
+	if imgpath != "":
+		media_id = _img_tweet(req,imgpath)
 	params = {"status":msg}
+	
 	if media_id:
 		params["media_ids"] = media_id
 	
